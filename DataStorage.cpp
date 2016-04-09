@@ -43,15 +43,28 @@ int DataStorage::numberOfElementsBetween(double item1, double item2) {
     return res;
 }
 
+
+
 int DataStorage::eraseElementsBetween(double item1, double item2) {
     int numberOfRemovedItems = 0;
-
-    for (auto i = data_.begin(); i != data_.end() ; ++i) {
-        if (item1 <= *i && *i <= item2){
-            data_.erase(i);
+/*
+    for(int i = 0; i < data_.size(); ++i){
+        if(data_[i] >= item1 && data_[i] <= item2){
+            cout << "This is to be removed: " << data_[i] << endl;
+            data_.erase(data_.begin()+i);
             ++numberOfRemovedItems;
         }
+    }*/
+
+    for (auto i = data_.begin(); i != data_.end(); ) {
+        if (item1 <= *i && *i <= item2){
+            cout << "This is to be removed: " << *i << endl;
+            i = data_.erase(i);
+        } else {
+            i++;
+        }
     }
+
     return numberOfRemovedItems;
 }
 
