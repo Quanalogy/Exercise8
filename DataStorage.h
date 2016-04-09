@@ -19,6 +19,9 @@ public:
     int numberOfElementsBetween(double item1, double item2);
     int eraseElementsBetween(double item1, double item2);
     void print();
+    DataStorage(){
+        data_= std::vector<double>(20,0); // size 20 and 0 on all entries.
+    }
 };
 
 
